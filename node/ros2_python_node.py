@@ -22,5 +22,5 @@ def main(args=None):
     rclpy.shutdown()
 
 if __name__ == '__main__':
-    # 只有在直接运行脚本时才会调用main函数
+    # 只有在直接运行脚本时才会调用main函数test
     main()
