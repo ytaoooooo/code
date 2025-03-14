@@ -1,0 +1,28 @@
+// {
+//     "workbench.colorTheme": "Default Dark Modern",
+//     "workbench.colorCustomizations": {
+//         "[Default Dark Modern]": {
+//             "editor.background": "#1E1E1E",
+//             "editor.foreground": "#D4D4D4",
+//             "editor.lineHighlightBackground": "#2A2D2E",
+//             "editor.selectionBackground": "#264F78",
+//             "editorCursor.foreground": "#D4D4D4",
+//             "editorWhitespace.foreground": "#404040"
+//         },
+//         "[cpp]": {
+//             "editor.background": "#1E1E1E",
+//             "editor.foreground": "#D4D4D4",
+//             "editor.lineHighlightBackground": "#2A2D2E",
+//             "editor.selectionBackground": "#264F78",
+//             "editorCursor.foreground": "#D4D4D4",
+//             "editorWhitespace.foreground": "#404040"
+//         }
+//     },
+//     // 编辑器字体大小设置为20
+//     "editor.fontSize": 20,
+//     // 终端字体大小设置为20
+//     "terminal.integrated.fontSize": 20,
+//     "files.associations": {
+//         "*.txt": "python"  // 将 .txt 文件关联为 cpp 格式
+//     }
+// } 

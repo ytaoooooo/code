@@ -1,20 +1,36 @@
 <?xml version="1.0"?>
+<!-- XML版本声明 -->
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<!-- XML模式定义,指定了package.xml的格式规范 -->
 <package format="3">
+  <!-- 功能包名称 -->
   <name>my_python_package</name>
+  <!-- 功能包版本号 -->
   <version>0.0.0</version>
+  <!-- 功能包描述信息 -->
   <description>TODO: Package description</description>
+  <!-- 维护者信息 -->
   <maintainer email="1347781778@qq.com">yangtao</maintainer>
+  <!-- 开源许可证 -->
   <license>Apache-2.0</license>
 
+  <!-- 运行时依赖 -->
   <depend>rclpy</depend>
 
+
+
+  <!-- 测试依赖 -->
   <test_depend>ament_copyright</test_depend>
   <test_depend>ament_flake8</test_depend>
   <test_depend>ament_pep257</test_depend>
   <test_depend>python3-pytest</test_depend>
+  
 
+
+
+  <!-- 导出信息 -->
   <export>
+    <!-- 构建类型为ament_python -->
     <build_type>ament_python</build_type>
   </export>
 </package>
