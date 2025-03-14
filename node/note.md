@@ -7,7 +7,7 @@ mkdir -p ros2_ws/src  # 创建工作空间和源码目录
 cd ros2_ws/src  # 进入源码目录
 
 2. 创建功能包
-ros2 pkg create --build-type ament_python my_package --license Apache-2.0  # 创建Python功能包并指定Apache许可证
+ros2 pkg create --build-type ament_python --license Apache-2.0 my_topic_package  # 创建Python功能包并指定Apache许可证
 # 或
 ros2 pkg create --build-type ament_cmake --license Apache-2.0 my_cpp_package  # 创建C++功能包并指定Apache许可证
 
