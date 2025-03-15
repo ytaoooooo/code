@@ -1,5 +1,5 @@
 from setuptools import find_packages, setup
-
+from glob import glob
 package_name = 'demo_python_service'
 
 setup(
@@ -13,6 +13,9 @@ setup(
         # 添加资源文件
         ('share/' + package_name + '/resource', ['resource/default.jpg']),
         ('share/' + package_name + '/resource', ['resource/bus.jpg']),
+
+        # 添加 launch 文件
+        ('share/' + package_name + '/launch', glob('launch/*.launch.py'))
     ],
     install_requires=['setuptools'],
     zip_safe=True,
