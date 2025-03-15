@@ -7,24 +7,41 @@ from ament_index_python.packages import get_package_share_directory
 import os   
 from cv_bridge import CvBridge
 import time
+from rcl_interfaces.msg import SetParametersResult
 
 class FaceDetectNode(Node):
     def __init__(self):
         super().__init__('face_detect_node')
         self.get_logger().info("Face detect node initialized")
+        # 创建CvBridge
+        self.bridge = CvBridge()
+        self.declare_parameter('number_of_times_to_upsample', 1)
+        # 上采样次数
+        self.number_of_times_to_upsample = self.get_parameter('number_of_times_to_upsample').value
+        # 模型
+        self.model = "hog"
+        # 图片路径
+        self.default_image_path = os.path.join(get_package_share_directory('demo_python_service'), 'resource', 'default.jpg')
         # 客户端请求服务 服务端处理请求
         # 客户端发送图片 服务端处理图片 返回人脸位置
         # 创建服务 参数：服务类型，服务名称，回调函数  
         self.srv = self.create_service(FaceDetector, 'face_detect', self.face_detect_callback)
 
-        # 创建CvBridge
-        self.bridge = CvBridge()
-        # 上采样次数
-        self.number_of_times_to_upsample = 1
-        # 模型
-        self.model = "hog"
-        # 图片路径
-        self.default_image_path = os.path.join(get_package_share_directory('demo_python_service'), 'resource', 'default.jpg')
+        # 当参数服务器发生变化时，回调函数会被调用
+        self.add_on_set_parameters_callback(self.parameters_callback)
+
+    # 参数回调函数: 当参数发生变化时，回调函数会被调用
+    def parameters_callback(self, parameters):
+        print("调用参数回调函数")
+        self.number_of_times_to_upsample = self.get_parameter('number_of_times_to_upsample').value
+        for parameter in parameters:
+            if parameter.name == 'number_of_times_to_upsample':
+                self.number_of_times_to_upsample = parameter.value
+
+        # 返回True表示参数设置成功
+        return SetParametersResult(successful=True)
+
+
     # 回调函数
     def face_detect_callback(self, request, response):
         
