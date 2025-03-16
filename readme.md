@@ -26,3 +26,7 @@ ament是ROS 2中用于构建、测试和安装软件包的工具集，它提供�
 
 # 动作
     动作是一种 异步长时间任务处理 机制，适用于 可能需要一段时间完成的任务，如 导航、抓取、移动 等。
+
+# TF坐标变换
+   ## 旋转坐标转换库 
+    sudo apt install ros-$ROS_DISTRO-tf-transformations
